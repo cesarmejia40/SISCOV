@@ -104,7 +104,7 @@
             $fechats = strtotime($Fecha); //pasamos a timestamp
             
             //el parametro w en la funcion date indica que queremos el dia de la semana
-            //lo devuelve en numero 0 domingo, 1 lunes,....
+            //lo devuelve en numero 0 domingo, 1 lunes, martes....
             switch (date('w', $fechats)){
                 case 0: $idia = 0; $fdia = 0; break;    /*Domingo*/
                 case 1: $idia = 0; $fdia = 4; break;    /*Lunes*/
