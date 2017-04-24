@@ -11,7 +11,7 @@
 //Abrir los diferentes modales del sistema
 $(document).ready(function(){
     $("#crearU").click(function(){$("#AUsuario").openModal();});
-
+    
     $("#crearT").click(function(){$("#ATrabajador").openModal();});
 });
 
@@ -23,6 +23,50 @@ function gotopage(mypage) {
 /*/////////////////////////////////////////////////////////////////////////////////////////
                                     FIN MIS FUNCIONES
 //////////////////////////////////////////////////////////////////////////////////////////*/
+
+
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+                                FUNCIONES SOBRE Id's Tablas
+//////////////////////////////////////////////////////////////////////////////////////////*/
+$('#BuscarUsuarios').on('keyup', function(){
+        var table = $('#TblMaster').DataTable();
+        table.search(this.value ).draw();
+
+        //$("#TblMaster_length, #TblMaster_filter, #TblMaster_info, #TblMaster_paginate").hide();
+    }
+);
+
+$('#TblMaster').DataTable({
+    columnDefs:[{
+        targets: [ 0, 1, 2 ],
+        className: 'mdl-data-table__cell--non-numeric'
+    }]
+});
+
+/*$("#TblTrabajadores").DataTable({
+    "ordering": false,
+    "info": false,
+    "bPaginate2": false,
+    "bfilter": false,
+    "language": {
+        "emptyTable": "No hay datos disponible en la tabla",
+        "lengthMenu": "_MENU_",
+        //"search":'<i style="color:#039be5; font-size:40px;" class="material-icons">search</i>',
+         "loadingRecords": "",
+         "paginate": {
+             "first":    "Primera",
+             "last":     "Última ",
+             "next":     "Anterior",
+             "previous": "Siguiente"
+         }
+    }
+});*/
+
+/*/////////////////////////////////////////////////////////////////////////////////////////
+                                FIN FUNCIONES SOBRE USUARIO
+//////////////////////////////////////////////////////////////////////////////////////////*/
+
 
 
 /*/////////////////////////////////////////////////////////////////////////////////////////
@@ -152,14 +196,6 @@ function BorrarUsuario(IdUser, Estado){
         })
     })
 }
-
-$('#BuscarUsuarios').on('keyup', function(){
-        var table = $('#TblMaster').DataTable();
-        table.search(this.value ).draw();
-
-        $("#TblMaster_length, #TblMaster_filter, #TblMaster_info, #TblMaster_paginate").hide();
-    } 
-);
 /*/////////////////////////////////////////////////////////////////////////////////////////
                                 FIN FUNCIONES SOBRE USUARIO
 //////////////////////////////////////////////////////////////////////////////////////////*/
@@ -638,4 +674,3 @@ function MUP(key, per,FE,CONTRATO){
             }
         });
     }; TERMINA el 03*/
-    
