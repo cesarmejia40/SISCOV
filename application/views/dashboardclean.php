@@ -8,6 +8,8 @@
 				echo '<a href="#" class="brand-logo center">LISTA DE USUARIOS</a>';
 			}elseif($this->uri->segment(1)=='Trabajadores'){
 				echo '<a href="#" class="brand-logo center">LISTA DE TRABAJADORES</a>';
+			}elseif($this->uri->segment(1)=='Reportes'){
+				echo '<a href="#" class="brand-logo center">REPORTES</a>';
 			}
 			
 			echo '<ul class="right hide-on-med-and-down">        	

@@ -3,7 +3,7 @@
 ///////////////////////////////////////////////////////////-->
 <main class="mdl-layout__content mdl-color--grey-100">
     <div class="contenedor">
-       <div class="container">
+       <!-- <div class="container">
             <div class="Buscar row column">               
                 <div class="col s1 m1 l1 offset-l3 offset-m2">
                     <i style='color:#039be5; font-size:40px;' class="material-icons">search</i>
@@ -13,11 +13,12 @@
                     <label for="search"></label>
                 </div>
             </div>
-        </div>
+        </div> -->
 
         <!--/////////////////////////////////////////////////////////////////////////////////////////
                                        BOTONES
         //////////////////////////////////////////////////////////////////////////////////////////-->
+         <br><br>
         <div class="right row">
             <div id="crearT" class="col s1 m1 l1">
                 <a data-tooltip='CREAR TRABAJADOR' class="tooltipped">

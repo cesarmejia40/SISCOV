@@ -10,13 +10,9 @@
 			} 
 		}
 
-		public function WHead(){
+		public function index(){
 			$this->load->view('header');
 			$this->load->view('dashboardclean');
-		}
-		
-		public function index(){
-            $this->WHead();
 			$data['TBW']=$this->Works->allwork();
 			$data['CGW']=$this->Works->allCargo();
 			$data['TNW']=$this->Works->allTurno();

@@ -13,25 +13,26 @@
                     case 1: //ADMINISTRADOR
                         echo '<div class="col offset-l3 s12 l2">
                                     <div class="card small" >
-                                        <a href='.base_url("index.php/Trabajadores").'>
+                                        <a href='.base_url("index.php/CalSemana").'>
                                             <div class="card-image">
-                                                <img style="margin-top:20px;" src='.base_url("assets/img/work/Work.png").' >
+                                                <img style="margin-top:20px;" src='.base_url("assets/img/reporte/CalSemana.png").' >
                                             </div>
                                             <div class="card-content center">
-                                                <p style="color:black;">CREAR TRABAJADOR</p>
+                                                <p style="color:black;">CALENDARIO</p>
                                             </div>
                                         </a>
                                     </div>
-                              </div>
-
-                              <div class="col s12 l2">
+                              </div>';
+                    break;
+                    /*case 2: //DIGITADOR
+                        echo '<div class="col offset-l3 s12 l2">
                                     <div class="card small" >
-                                        <a href='.base_url("index.php/Usuarios").'>
+                                        <a href='.base_url("index.php/Trabajadores").'>
                                             <div class="card-image">
-                                                <img style="margin-top:20px;" src='.base_url("assets/img/menu/agregar-usuario.png").' >
+                                                <img style="margin-top:20px;" src='.base_url("assets/img/menu/reportes.jpg").' >
                                             </div>
                                             <div class="card-content center">
-                                                <p style="color:black;">CREACION DE USUARIO</p>
+                                                <p style="color:black;">CALENDARIO</p>
                                             </div>
                                         </a>
                                     </div>
@@ -48,22 +49,7 @@
                                             </div>
                                         </a>
                                     </div>
-                              </div>';
-                    break;
-                    case 2: //DIGITADOR
-                        echo '<div class="col offset-l4 s12 l2">
-                                    <div class="card small" >
-                                        <a href='.base_url("index.php/Trabajadores").'>
-                                            <div class="card-image">
-                                                <img style="margin-top:20px;" src='.base_url("assets/img/work/Work.png").' >
-                                            </div>
-                                            <div class="card-content center">
-                                                <p style="color:black;">CREAR TRABAJADOR</p>
-                                            </div>
-                                        </a>
-                                    </div>
                               </div>
-
                               <div class="col s12 l2">
                                     <div class="card small" >
                                         <a href='.base_url("index.php/Reportes").'>
@@ -76,7 +62,7 @@
                                         </a>
                                     </div>
                               </div>';
-                    break;
+                    break;*/
                 }
             }
         ?> 

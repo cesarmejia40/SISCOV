@@ -33,35 +33,35 @@ $('#BuscarUsuarios').on('keyup', function(){
         var table = $('#TblMaster').DataTable();
         table.search(this.value ).draw();
 
-        //$("#TblMaster_length, #TblMaster_filter, #TblMaster_info, #TblMaster_paginate").hide();
+        //$("#TblMaster_filter").hide();
     }
 );
 
-$('#TblMaster').DataTable({
-    columnDefs:[{
-        targets: [ 0, 1, 2 ],
-        className: 'mdl-data-table__cell--non-numeric'
-    }]
-});
-
-/*$("#TblTrabajadores").DataTable({
-    "ordering": false,
+$("#TblMaster").DataTable({
+    "ordering": true,
     "info": false,
     "bPaginate2": false,
-    "bfilter": false,
+    "bfilter": true,
+    "pagingType": "full_numbers",
+    "aaSorting": [[2, "asc"]],
+    "lengthMenu": [[5,10,-1], [5,10,"Todo"]],
     "language": {
         "emptyTable": "No hay datos disponible en la tabla",
         "lengthMenu": "_MENU_",
         //"search":'<i style="color:#039be5; font-size:40px;" class="material-icons">search</i>',
-         "loadingRecords": "",
-         "paginate": {
-             "first":    "Primera",
-             "last":     "Última ",
-             "next":     "Anterior",
-             "previous": "Siguiente"
-         }
+        "loadingRecords": "",
+        "info":         "Mostrando _START_ a _END_ de _TOTAL_ registro",
+        "infoEmpty":    "Mostrando 0 a 0 de 0 registro",
+        "infoFiltered": "(filtrado de _MAX_ registros totales)",
+        "zeroRecords":  "No se han encontrado resultados para tu búsqueda",
+        "paginate": {
+            "first":    "Primera",
+            "last":     "Última ",
+            "next":     "Anterior",
+            "previous": "Siguiente"
+        },
     }
-});*/
+});
 
 /*/////////////////////////////////////////////////////////////////////////////////////////
                                 FIN FUNCIONES SOBRE USUARIO

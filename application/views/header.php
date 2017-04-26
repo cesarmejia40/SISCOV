@@ -21,7 +21,7 @@
 
         <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fullcalendar.min.css"/>
         <link type="text/css" rel="stylesheet" href="<?php echo base_url(); ?>assets/css/fullcalendar.print.min.css" media="print"/>
-        
+
         <style type="text/css" media="screen">
             select{
                 display: block;
