@@ -32,6 +32,7 @@
 
 
      /*************LINK DE REPORTES***********/
+     //$route['Reportes'] = 'Reports';
      $route['CalSemana'] = 'Reportes/CalSemana';
 
 
