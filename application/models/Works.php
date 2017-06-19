@@ -122,7 +122,7 @@
 
             $this->db->where('Id', $Id);
             $data = array('puntos' => $row->puntos);
-
+            
             $this->db->update('calendar', $data);
         }
 

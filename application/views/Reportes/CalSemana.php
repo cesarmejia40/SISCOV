@@ -27,59 +27,49 @@
         <table id="TblMaster" class="striped">
             <caption style="border-radius: 20px 20px 0px 0px; background: #233778; color: white">
                 <aside style="color: #233778">UP</aside>
-                <aside style="text-align: left">
-                    <span style="padding:20px">TRABAJADOR</span>
-                    <span style="padding:50px">LUNES</span>
-                    <span style="padding:55px">MARTES</span>
-                    <span style="padding:20px">MIERCOLES</span>
-                    <span style="padding:60px">JUEVES</span>
-                    <span style="padding:40px">VIERNES</span>
-                    <span style="padding:40px">SABADO</span>
+                <aside style="border-bottom: white 2px solid; text-align: left">
+                    <span style="border-right: white 1px solid; padding:20px">TRABAJADOR</span>
+                    <span style="border-right: white 1px solid; padding:50px">LUNES</span>
+                    <span style="border-right: white 1px solid; padding:50px">MARTES</span>
+                    <span style="border-right: white 1px solid; padding:36px">MIERCOLES</span>
+                    <span style="border-right: white 1px solid; padding:50px">JUEVES</span>
+                    <span style="border-right: white 1px solid; padding:45px">VIERNES</span>
+                    <span style="border-right: white 1px solid; padding:50px">SABADO</span>
                     <span style="padding:80px">PROMEDIO</span>
                 </aside>
             </caption>
             <thead>
                 <tr class="tblcabecera">
                     <th style="border-radius: 0px 0px 0px 20px;">Factor de <br>Evaluación</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
-                    <th>resul<br>tado</th>
-                    <th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
+                    <th>resul<br>tado</th><th>puntos</th>
                     <th>semana<br>actual</th>
                     <th>semana<br>pasada</th>
-                    <th style="border-radius: 0px 0px 20px 0px;">acumulado X mes</th>
+                    <th style="border-radius: 0px 0px 20px 0px;">acumulado <br>X mes</th>
                 </tr>
             </thead>
             <tbody>
                 <?PHP
                     if(!($RWS)){
                     } else {
-                        $c=1;
-                       /* foreach ($RWS as $key) {
-                            if($key['Activo'] == 0){
-                                $activo ="<td><a data-tooltip='CAMBIAR A INACTIVO' class='btn-flat tooltipped noHover' onclick='BorrarTrabajador(".'"'.$key['IdTb'].'"'.", 1)'><i style='color:green; font-size:30px;' class='material-icons'>done</i></a></td>";
-                            }else{
-                                $activo ="<td><a data-tooltip='CAMBIAR A ACTIVO' class='btn-flat tooltipped noHover' onclick='BorrarTrabajador(".'"'.$key['IdTb'].'"'.", 0)'><i style='color:red; font-size:30px;' class='material-icons'>close</i></a></td>";
-                            }
-                                
+                        foreach ($RWS as $key) {
                             echo "<tr>                                    
-                                    <td class='regular'>".$c."</td>
-                                    <td class='bold'>".$key['NombreC']."</td>
-                                    <td>".$key['Cargo']."</td>
-                                    <td>".$key['Horario']."</td>"
-                                    .$activo.
-                                    "<td><a data-tooltip='CAMBIAR' class='btn-flat tooltipped noHover' onClick='CalendarWK(".'"'.$key['IdTb'].'",'.'"'.$key['NombreC'].'"'.")'><i style='color:blue; font-size:30px;' class='material-icons'>today</i></a></td>
+                                    <td class='bold'>".$key['TB']."</td>
+                                    <td>".$key['LunR']."</td><td>".$key['LunP']."</td>
+                                    <td>".$key['MarR']."</td><td>".$key['MarP']."</td>
+                                    <td>".$key['MieR']."</td><td>".$key['MieP']."</td>
+                                    <td>".$key['JueR']."</td><td>".$key['JueP']."</td>
+                                    <td>".$key['VieR']."</td><td>".$key['VieP']."</td>
+                                    <td>".$key['SabR']."</td><td>".$key['SabP']."</td>
+                                    <td>".$key['PSAc']."</td>
+                                    <td>".$key['PSAn']."</td>
+                                    <td>".$key['PAM']."</td>
                                   </tr>";
-                            $c++;
-                        }*/
+                        }
                     }
                 ?>
             </tbody>
