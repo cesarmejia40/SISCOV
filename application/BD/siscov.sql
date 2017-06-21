@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.6.5.2
--- https://www.phpmyadmin.net/
+-- version 4.5.1
+-- http://www.phpmyadmin.net
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 17-06-2017 a las 01:12:14
--- Versión del servidor: 10.1.21-MariaDB
--- Versión de PHP: 5.6.30
+-- Tiempo de generación: 22-06-2017 a las 01:48:47
+-- Versión del servidor: 10.1.16-MariaDB
+-- Versión de PHP: 5.6.24
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -19,6 +19,70 @@ SET time_zone = "+00:00";
 --
 -- Base de datos: `siscov`
 --
+
+DELIMITER $$
+--
+-- Procedimientos
+--
+CREATE DEFINER=`root`@`localhost` PROCEDURE `pc_Puntos_Semana` ()  BEGIN
+	DECLARE c_NombreC VARCHAR(150); 
+	DECLARE c_Id, Id VARCHAR(10); 
+	DECLARE c_title, c_puntos, c_ttpsa, t_day, errores INT DEFAULT 0;
+	DECLARE c_start DATE;
+	DECLARE CSQL TEXT DEFAULT "(";
+
+	DECLARE data_cursor CURSOR FOR 
+			SELECT T1.NombreC, T0.IdTb, T0.title, T0.puntos, T0.`start`,
+			(SELECT SUM(puntos) FROM calendar WHERE IdTb = T0.IdTb AND `start` BETWEEN '2017-04-17' AND '2017-04-22') AS TT_Puntos
+			FROM calendar T0 INNER JOIN `work` T1 ON T0.IdTb = T1.IdTb
+			WHERE T1.Cargo = "Rebobinador" AND T0.`start` BETWEEN '2017-04-17' AND '2017-04-22'
+			ORDER BY T0.IdTb, T0.`start`;
+	DECLARE CONTINUE HANDLER FOR NOT FOUND SET errores = 1;
+	
+	SET Id = "0";
+	
+	OPEN data_cursor;
+		   read_data: LOOP
+				FETCH data_cursor INTO c_NombreC, c_Id, c_title, c_puntos, c_start, c_ttpsa;
+				
+				IF errores = 1 THEN
+					LEAVE read_data;
+				END IF;
+
+				IF CSQL = "(" THEN
+					SET CSQL = 	CONCAT(CSQL, "'", c_NombreC, "',", c_title, ",", c_puntos);
+					SET Id = c_Id;
+					SET t_day = DAY(c_start);
+				ELSE
+					IF Id <> c_Id THEN
+						SET CSQL = CONCAT(CSQL, ",", c_ttpsa, ",0,0),('", c_NombreC, "'");
+
+						SET Id = c_Id;
+						SET t_day = DAY(c_start);
+					END IF;
+					
+					IF t_day = DAY(c_start) THEN
+						SET CSQL = CONCAT(CSQL, ",", c_title, ",", c_puntos);
+					ELSE
+						SET CSQL = CONCAT(CSQL, ",0,0");
+					END IF;
+				END IF;
+				SET t_day = t_day+1;
+			END LOOP read_data;
+	CLOSE data_cursor;
+	
+	DELETE FROM rptsemana;
+
+	SET @query = CONCAT("INSERT INTO rptsemana VALUES", CSQL, ",", c_ttpsa, ",0,0)");
+           
+	PREPARE IC FROM @query; 
+	EXECUTE IC;
+	DEALLOCATE PREPARE IC;
+
+	select CSQL;
+END$$
+
+DELIMITER ;
 
 -- --------------------------------------------------------
 
@@ -54,14 +118,14 @@ INSERT INTO `calendar` (`Id`, `IdTb`, `title`, `puntos`, `start`, `end`) VALUES
 (12, 1, '0', 0, '2017-04-06', '2017-04-06'),
 (13, 1, '0', 0, '2017-04-07', '2017-04-07'),
 (14, 1, '100', 0, '2017-04-10', '2017-04-10'),
-(15, 1, '470', 0, '2017-04-09', '2017-04-09'),
+(15, 1, '470', 100, '2017-04-09', '2017-04-09'),
 (16, 1, '100', 0, '2017-04-11', '2017-04-11'),
 (17, 1, '100', 0, '2017-04-12', '2017-04-12'),
 (18, 1, '0', 0, '2017-04-13', '2017-04-13'),
 (19, 1, '85', 0, '2017-04-14', '2017-04-14'),
 (20, 1, '85', 0, '2017-04-15', '2017-04-15'),
 (21, 1, '100', 0, '2017-04-17', '2017-04-17'),
-(22, 1, '600', 0, '2017-04-16', '2017-04-16'),
+(22, 1, '600', 100, '2017-04-16', '2017-04-16'),
 (23, 1, '100', 0, '2017-04-18', '2017-04-18'),
 (24, 1, '100', 0, '2017-04-19', '2017-04-19'),
 (25, 1, '100', 0, '2017-04-20', '2017-04-20'),
@@ -2120,15 +2184,15 @@ INSERT INTO `calendar` (`Id`, `IdTb`, `title`, `puntos`, `start`, `end`) VALUES
 (2077, 60, '0', 0, '2017-04-13', '2017-04-13'),
 (2078, 60, '0', 0, '2017-04-14', '2017-04-14'),
 (2079, 60, '0', 0, '2017-04-15', '2017-04-15'),
-(2080, 60, '85', 0, '2017-04-17', '2017-04-17'),
-(2081, 60, '460', 0, '2017-04-16', '2017-04-16'),
-(2082, 60, '85', 0, '2017-04-18', '2017-04-18'),
-(2083, 60, '95', 0, '2017-04-19', '2017-04-19'),
-(2084, 60, '0', 0, '2017-04-20', '2017-04-20'),
-(2085, 60, '95', 0, '2017-04-21', '2017-04-21'),
-(2086, 60, '100', 0, '2017-04-22', '2017-04-22'),
-(2087, 60, '100', 0, '2017-04-24', '2017-04-24'),
-(2088, 60, '595', 0, '2017-04-23', '2017-04-23'),
+(2080, 60, '320', 85, '2017-04-17', '2017-04-17'),
+(2081, 60, '2200', 0, '2017-04-16', '2017-04-16'),
+(2082, 60, '450', 100, '2017-04-18', '2017-04-18'),
+(2083, 60, '380', 85, '2017-04-19', '2017-04-19'),
+(2084, 60, '500', 100, '2017-04-20', '2017-04-20'),
+(2085, 60, '150', 0, '2017-04-21', '2017-04-21'),
+(2086, 60, '400', 95, '2017-04-22', '2017-04-22'),
+(2087, 60, '320', 85, '2017-04-24', '2017-04-24'),
+(2088, 60, '815', 0, '2017-04-23', '2017-04-23'),
 (2089, 60, '95', 0, '2017-04-25', '2017-04-25'),
 (2090, 60, '100', 0, '2017-04-26', '2017-04-26'),
 (2091, 60, '100', 0, '2017-04-27', '2017-04-27'),
@@ -2446,7 +2510,7 @@ INSERT INTO `calendar` (`Id`, `IdTb`, `title`, `puntos`, `start`, `end`) VALUES
 (2402, 3, '185', 0, '2017-05-21', '2017-05-21'),
 (2403, 3, '0', 0, '2017-05-23', '2017-05-23'),
 (2404, 16, '0', 0, '2017-05-13', '2017-05-13'),
-(2405, 16, '460', 0, '2017-05-07', '2017-05-07'),
+(2405, 16, '795', 0, '2017-05-07', '2017-05-07'),
 (2406, 16, '0', 0, '2017-05-04', '2017-05-04'),
 (2407, 16, '300', 0, '2017-04-30', '2017-04-30'),
 (2408, 16, '0', 0, '2017-05-06', '2017-05-06'),
@@ -2457,7 +2521,7 @@ INSERT INTO `calendar` (`Id`, `IdTb`, `title`, `puntos`, `start`, `end`) VALUES
 (2413, 16, '100', 0, '2017-05-02', '2017-05-02'),
 (2414, 16, '100', 0, '2017-05-03', '2017-05-03'),
 (2415, 16, '100', 0, '2017-05-05', '2017-05-05'),
-(2416, 16, '85', 0, '2017-05-08', '2017-05-08'),
+(2416, 16, '420', 95, '2017-05-08', '2017-05-08'),
 (2417, 16, '100', 0, '2017-05-09', '2017-05-09'),
 (2418, 16, '95', 0, '2017-05-10', '2017-05-10'),
 (2419, 16, '95', 0, '2017-05-11', '2017-05-11'),
@@ -3991,7 +4055,12 @@ INSERT INTO `log_transac` (`Grupo`, `Us_name`, `Date_Reg`, `Descripcion`) VALUES
 ('0', 'sc01 ID=> 2', '2017-06-01 10:41:53', 'Ingreso al sistema'),
 ('0', 'admin ID=> 1', '2017-06-13 22:56:01', 'Ingreso al sistema'),
 ('0', 'admin ID=> 1', '2017-06-15 19:19:55', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-16 19:24:07', 'Ingreso al sistema');
+('0', 'admin ID=> 1', '2017-06-16 19:24:07', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-19 22:16:12', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-19 23:02:43', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-19 23:03:33', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-20 17:55:25', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-20 22:33:44', 'Ingreso al sistema');
 
 -- --------------------------------------------------------
 
@@ -4043,22 +4112,22 @@ INSERT INTO `rol` (`IdRol`, `Descripcion`) VALUES
 --
 
 CREATE TABLE `rptsemana` (
-  `TB` varchar(50) NOT NULL,
-  `LunR` int(11) NOT NULL,
-  `LunP` int(11) NOT NULL,
-  `MarR` int(11) NOT NULL,
-  `MarP` int(11) NOT NULL,
-  `MieR` int(11) NOT NULL,
-  `MieP` int(11) NOT NULL,
-  `JueR` int(11) NOT NULL,
-  `JueP` int(11) NOT NULL,
-  `VieR` int(11) NOT NULL,
-  `VieP` int(11) NOT NULL,
-  `SabR` int(11) NOT NULL,
-  `SabP` int(11) NOT NULL,
-  `PSAc` int(11) NOT NULL,
-  `PSAn` int(11) NOT NULL,
-  `PAM` int(11) NOT NULL
+  `TB` varchar(150) DEFAULT NULL,
+  `LunR` int(11) DEFAULT NULL,
+  `LunP` int(11) DEFAULT NULL,
+  `MarR` int(11) DEFAULT NULL,
+  `MarP` int(11) DEFAULT NULL,
+  `MieR` int(11) DEFAULT NULL,
+  `MieP` int(11) DEFAULT NULL,
+  `JueR` int(11) DEFAULT NULL,
+  `JueP` int(11) DEFAULT NULL,
+  `VieR` int(11) DEFAULT NULL,
+  `VieP` int(11) DEFAULT NULL,
+  `SabR` int(11) DEFAULT NULL,
+  `SabP` int(11) DEFAULT NULL,
+  `PSAc` int(11) DEFAULT NULL,
+  `PSAn` int(11) DEFAULT NULL,
+  `PAM` int(11) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -4066,7 +4135,16 @@ CREATE TABLE `rptsemana` (
 --
 
 INSERT INTO `rptsemana` (`TB`, `LunR`, `LunP`, `MarR`, `MarP`, `MieR`, `MieP`, `JueR`, `JueP`, `VieR`, `VieP`, `SabR`, `SabP`, `PSAc`, `PSAn`, `PAM`) VALUES
-('Sergio Espinoza', 50, 0, 85, 0, 88, 0, 0, 88, 0, 0, 88, 88, 0, 88, 88);
+('Christian Lopez', 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0),
+('Noriel Daniel Juarez Cordoba', 100, 0, 100, 0, 95, 0, 100, 0, 95, 0, 0, 0, 0, 0, 0),
+('Juan Carlos Reyes Obregon', 100, 0, 100, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('Jose Luis Salinas Gomez', 100, 0, 100, 0, 85, 0, 85, 0, 85, 0, 0, 0, 0, 0, 0),
+('Allan Perez', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
+('Pastor Eleazar Ordoñez Espinoza', 85, 0, 100, 0, 85, 0, 0, 0, 95, 0, 0, 0, 465, 0, 0),
+('Jaime Jose Vanegas Quiroz', 320, 85, 450, 100, 380, 85, 500, 100, 150, 0, 400, 95, 0, 0, 0),
+('Norman Basquez', 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0),
+('Hanzel Bladimir Marenco Norori', 85, 0, 85, 0, 100, 0, 95, 0, 85, 0, 95, 0, 0, 0, 0),
+('Ervin Israel Torrez Membreño', 95, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -4098,7 +4176,6 @@ INSERT INTO `user` (`IdUser`, `User`, `Name`, `Pass`, `Access`, `Date_Creat`, `A
 
 --
 -- Estructura Stand-in para la vista `vtweekpuntos`
--- (Véase abajo para la vista actual)
 --
 CREATE TABLE `vtweekpuntos` (
 `IdTb` int(10)
