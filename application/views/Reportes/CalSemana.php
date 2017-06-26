@@ -103,7 +103,7 @@
 
                 <div class="row">
                      <div class="col s12 m4 l4">
-                        <input name="fecha" placeholder="FECHA DE INICIO" id="fecha" type="date" class="datepicker">
+                        <input name="fecha" placeholder="FECHA DE INICIO" id="fecha" type="date" class="datepicker" value="<?php echo date("Y-m-d");?>">
                         <label id="lblFecha" class="labelValidacion">SELECCIONE LA SEMANA</label>
                     </div>
 

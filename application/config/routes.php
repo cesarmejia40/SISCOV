@@ -34,7 +34,7 @@
      /*************LINK DE REPORTES***********/
      //$route['Reportes'] = 'Reports';
      $route['CalSemana'] = 'Reportes/CalSemana';
-     $route['GuardarReporte/(:any)/(:any)'] = 'Reportes/Guardar/$1/$2';
+     $route['GuardarReporte/(:any)/(:any)/(:any)'] = 'Reportes/Guardar/$1/$2/$3';
 
 
     /*************RUTAS EXCEL***********/

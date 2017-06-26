@@ -428,13 +428,11 @@ function EnviarReporte(){
     
     if (cargo==""){$('#lblCargo').show();return false;
     }else if (turno=="") {$('#lblTurno').show();return false;}
-    
-    alert (fecha);
 
     $('#AddReporte').hide();
     
     $.ajax({
-        url: "GuardarReporte/"+cargo+"/"+turno,
+        url: "GuardarReporte/"+fecha+"/"+cargo+"/"+turno,
         type: "post",
         async:true,
         success:

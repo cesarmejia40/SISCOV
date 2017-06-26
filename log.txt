@@ -1,0 +1,9 @@
+DELETE FROM rptsemana;
+
+	SET @query = CONCAT("INSERT INTO rptsemana VALUES", CSQL, ",", c_ttpsa, ",0,0)");
+           
+	PREPARE IC FROM @query; 
+	EXECUTE IC;
+	DEALLOCATE PREPARE IC;
+
+('Jose Luis Salinas Gomez',85,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0

@@ -27,7 +27,7 @@ class Reportes extends CI_Controller {
 		$this->load->view('footer');
     }
 
-	public function Guardar($Cargo,$Horario){
-		$this->Reports->Guardar($Cargo,$Horario);
+	public function Guardar($Fecha,$Cargo,$Horario){
+		$this->Reports->Guardar($Fecha,$Cargo,$Horario);
 	}
 }
