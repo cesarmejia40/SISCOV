@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.5.1
--- http://www.phpmyadmin.net
+-- version 4.6.5.2
+-- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 22-06-2017 a las 01:48:47
--- Versión del servidor: 10.1.16-MariaDB
--- Versión de PHP: 5.6.24
+-- Tiempo de generación: 26-06-2017 a las 05:36:17
+-- Versión del servidor: 10.1.21-MariaDB
+-- Versión de PHP: 5.6.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -3987,82 +3987,37 @@ CREATE TABLE `log_transac` (
 --
 
 INSERT INTO `log_transac` (`Grupo`, `Us_name`, `Date_Reg`, `Descripcion`) VALUES
-('0', 'admin ID=> 1', '2017-04-18 15:28:55', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 15:30:37', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 15:31:00', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 15:34:15', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 15:43:54', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-18 15:45:00', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-18 15:45:20', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-18 15:50:52', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-18 15:58:24', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-18 15:59:40', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 16:20:46', 'Ingreso al sistema'),
-('0', 'jluna ID=> 3', '2017-04-18 16:22:27', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-18 16:23:05', 'Ingreso al sistema'),
-('0', 'jluna ID=> 3', '2017-04-18 17:11:41', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-19 12:05:11', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-20 11:49:33', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-20 11:51:14', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-20 13:21:41', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-20 14:01:45', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-20 15:09:03', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-21 08:16:35', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-21 09:31:26', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-21 09:41:30', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-21 10:18:46', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-21 10:29:39', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-21 10:32:33', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-21 10:40:26', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-21 15:46:04', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-22 11:32:36', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-22 14:07:38', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-23 08:47:59', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-23 19:20:35', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-24 10:03:27', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-24 13:05:49', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-24 13:10:44', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-24 13:20:11', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-24 17:34:36', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-26 07:28:54', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-27 10:22:46', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-04-28 12:47:56', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-28 15:53:55', 'Ingreso al sistema'),
-('0', 'jluna ID=> 3', '2017-04-28 16:49:41', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-04-29 09:09:16', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-02 13:24:20', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-03 09:30:24', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-05-03 11:21:06', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-05 12:55:48', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-05 12:55:49', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-08 13:54:27', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-08 13:54:28', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-08 17:06:50', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-09 14:06:43', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-10 09:29:53', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-10 13:37:48', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-11 07:16:21', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-17 13:08:56', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-18 15:40:47', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-05-21 09:29:46', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-23 07:43:33', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-23 15:51:59', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-24 15:50:01', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-25 07:04:11', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-25 11:44:29', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-26 13:10:43', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-29 15:40:45', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-30 12:10:17', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-05-30 15:37:14', 'Ingreso al sistema'),
-('0', 'sc01 ID=> 2', '2017-06-01 10:41:53', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-13 22:56:01', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-15 19:19:55', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-16 19:24:07', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-19 22:16:12', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-19 23:02:43', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-19 23:03:33', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-20 17:55:25', 'Ingreso al sistema'),
-('0', 'admin ID=> 1', '2017-06-20 22:33:44', 'Ingreso al sistema');
+('0', 'admin ID=> 1', '2017-04-07 01:56:16', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 16:37:50', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 16:49:39', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 16:50:05', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 16:53:00', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 16:59:55', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 17:20:08', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 17:20:40', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 17:59:56', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 18:00:08', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 18:12:25', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:07:18', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:10:03', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:10:52', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:15:45', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:17:52', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:28:53', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:33:41', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:42:03', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:45:36', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:46:54', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:56:33', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 19:57:28', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 22:05:40', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-07 22:54:14', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-10 16:30:24', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-12 00:22:43', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-23 01:37:13', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-23 08:20:21', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-04-24 01:59:02', 'Ingreso al sistema'),
+('0', 'admin ID=> 1', '2017-06-25 23:21:13', 'Ingreso al sistema');
 
 -- --------------------------------------------------------
 
@@ -4140,13 +4095,8 @@ INSERT INTO `rptsemana` (`TB`, `LunR`, `LunP`, `MarR`, `MarP`, `MieR`, `MieP`, `
 ('Christian Lopez', 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0),
 ('Noriel Daniel Juarez Cordoba', 100, 0, 100, 0, 95, 0, 100, 0, 95, 0, 0, 0, 0, 0, 0),
 ('Juan Carlos Reyes Obregon', 100, 0, 100, 0, 95, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-('Jose Luis Salinas Gomez', 100, 0, 100, 0, 85, 0, 85, 0, 85, 0, 0, 0, 0, 0, 0),
 ('Allan Perez', 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0),
-('Pastor Eleazar Ordoñez Espinoza', 85, 0, 100, 0, 85, 0, 0, 0, 95, 0, 0, 0, 465, 0, 0),
-('Jaime Jose Vanegas Quiroz', 320, 85, 450, 100, 380, 85, 500, 100, 150, 0, 400, 95, 0, 0, 0),
-('Norman Basquez', 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0),
-('Hanzel Bladimir Marenco Norori', 85, 0, 85, 0, 100, 0, 95, 0, 85, 0, 95, 0, 0, 0, 0),
-('Ervin Israel Torrez Membreño', 95, 0, 100, 0, 100, 0, 100, 0, 100, 0, 100, 0, 0, 0, 0);
+('Hanzel Bladimir Marenco Norori', 85, 0, 85, 0, 100, 0, 95, 0, 85, 0, 95, 0, 0, 0, 0);
 
 -- --------------------------------------------------------
 
@@ -4169,22 +4119,7 @@ CREATE TABLE `user` (
 --
 
 INSERT INTO `user` (`IdUser`, `User`, `Name`, `Pass`, `Access`, `Date_Creat`, `Active`) VALUES
-(1, 'admin', 'Administrador', 'a7m1425.', 1, '2017-04-01', 0),
-(2, 'sc01', 'Roberto Dolores Carrion Baena', 'sc1804', 2, '2017-04-18', 0),
-(3, 'jluna', 'Joseph Enrique Luna Herrera', 'luna1234', 1, '2017-04-18', 0),
-(4, 'maryan', 'mespinoza', 'a7m1425', 1, '2017-04-21', 1);
-
--- --------------------------------------------------------
-
---
--- Estructura Stand-in para la vista `vtweekpuntos`
---
-CREATE TABLE `vtweekpuntos` (
-`IdTb` int(10)
-,`title` varchar(255)
-,`puntos` int(11)
-,`start` date
-);
+(1, 'admin', 'Administrador', 'a7m1425.', 1, '2017-04-01', 0);
 
 -- --------------------------------------------------------
 
@@ -4283,26 +4218,30 @@ INSERT INTO `work` (`IdTb`, `NombreC`, `Cargo`, `Horario`, `Activo`) VALUES
 (76, 'Ediccia Marcela Perez Chavarria', 'Selladora', '02:30 PM - 10:00 PM', 0),
 (77, 'Carla Patricia Mejia Espinoza', 'Seleccion', '02:30 PM - 10:00 PM', 1),
 (78, 'Flor de Maria Guevara Galeano', 'Seleccion', '02:30 PM - 10:00 PM', 0),
-(79, 'Benjamin Josue Garcia Sandino', 'Rebobinador', '02:30 PM - 10:00 PM', 0);
-
--- --------------------------------------------------------
-
---
--- Estructura para la vista `vtweekpuntos`
---
-DROP TABLE IF EXISTS `vtweekpuntos`;
-
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `vtweekpuntos`  AS  select `calendar`.`IdTb` AS `IdTb`,`calendar`.`title` AS `title`,`calendar`.`puntos` AS `puntos`,`calendar`.`start` AS `start` from `calendar` where `calendar`.`IdTb` in (select `work`.`IdTb` from `work` where (`work`.`Activo` = 0)) ;
+(79, 'Benjamin Josue Garcia Sandino', 'Rebobinador', '02:30 PM - 10:00 PM', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '10:00 PM - 06:00 AM', '', '', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '10:00 PM - 06:00 AM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '10:00 PM - 06:00 AM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '06:00 AM - 02:30 PM', '', '', 0),
+(0, '10:00 PM - 06:00 AM', '', '', 0),
+(0, '02:30 PM - 10:00 PM', '', '', 0),
+(0, '%2206:00 AM - 02:30 PM%22', '', '', 0),
+(0, '%2206:00 AM - 02:30 PM%22', '', '', 0);
 
 --
 -- Índices para tablas volcadas
 --
-
---
--- Indices de la tabla `calendar`
---
-ALTER TABLE `calendar`
-  ADD PRIMARY KEY (`Id`);
 
 --
 -- Indices de la tabla `cargo`
@@ -4317,12 +4256,6 @@ ALTER TABLE `horario`
   ADD PRIMARY KEY (`IdTn`);
 
 --
--- Indices de la tabla `metas`
---
-ALTER TABLE `metas`
-  ADD PRIMARY KEY (`IdMt`);
-
---
 -- Indices de la tabla `rol`
 --
 ALTER TABLE `rol`
@@ -4335,20 +4268,9 @@ ALTER TABLE `user`
   ADD PRIMARY KEY (`IdUser`);
 
 --
--- Indices de la tabla `work`
---
-ALTER TABLE `work`
-  ADD PRIMARY KEY (`IdTb`);
-
---
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
---
--- AUTO_INCREMENT de la tabla `calendar`
---
-ALTER TABLE `calendar`
-  MODIFY `Id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3812;
 --
 -- AUTO_INCREMENT de la tabla `cargo`
 --
@@ -4360,11 +4282,6 @@ ALTER TABLE `cargo`
 ALTER TABLE `horario`
   MODIFY `IdTn` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 --
--- AUTO_INCREMENT de la tabla `metas`
---
-ALTER TABLE `metas`
-  MODIFY `IdMt` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
---
 -- AUTO_INCREMENT de la tabla `rol`
 --
 ALTER TABLE `rol`
@@ -4373,12 +4290,7 @@ ALTER TABLE `rol`
 -- AUTO_INCREMENT de la tabla `user`
 --
 ALTER TABLE `user`
-  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
---
--- AUTO_INCREMENT de la tabla `work`
---
-ALTER TABLE `work`
-  MODIFY `IdTb` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=80;
+  MODIFY `IdUser` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

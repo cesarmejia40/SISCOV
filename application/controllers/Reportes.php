@@ -13,8 +13,6 @@ class Reportes extends CI_Controller {
     public function index() {
 	    $this->load->view('header');
 		$this->load->view('dashboardclean');
-		
-		//$this->load->view('Reportes/CalSemana',$data);
 		$this->load->view('Reportes/RMenu');
 		$this->load->view('footer');
     }
@@ -23,7 +21,13 @@ class Reportes extends CI_Controller {
 	    $this->load->view('header');
 		$this->load->view('dashboardclean');
 		$data['RWS']=$this->Reports->Allwork();
+		$data['CGW']=$this->Works->allCargo();
+		$data['TNW']=$this->Works->allTurno();
 		$this->load->view('Reportes/CalSemana',$data);
 		$this->load->view('footer');
     }
+
+	public function Guardar($Cargo,$Horario){
+		$this->Reports->Guardar($Cargo,$Horario);
+	}
 }

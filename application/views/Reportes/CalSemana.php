@@ -9,9 +9,9 @@
         //////////////////////////////////////////////////////////////////////////////////////////-->
          <br><br>
         <div class="right row">
-            <div id="crearT" class="col s1 m1 l1">
-                <a data-tooltip='CREAR TRABAJADOR' class="tooltipped">
-                    <i style='font-size:40px;' class="waves-effect waves-purple material-icons">recent_actors</i>
+            <div id="crearR" class="col s1 m1 l1">
+                <a data-tooltip='CREAR REPORTE' class="tooltipped">
+                    <i style='font-size:40px;' class="waves-effect waves-purple material-icons">assignment</i>
                 </a>
             </div>
             <div class="col s1 m1 l1"><p></p></div><div class="col s1 m1 l1"><p></p></div>
@@ -76,3 +76,75 @@
         </table>
     </div>
 </main>
+
+<!--/////////////////////////////////////////////////////////////////////////////////////////
+                                        MODALES
+//////////////////////////////////////////////////////////////////////////////////////////-->
+<!-- AGREGAR TRABAJADOR -->
+<div id="AReporte" class="modal">
+    <div class="modal-content">
+        <div class="right row">
+            <div class="col s1 m1 l1">
+                <a href="#!" class="BtnClose modal-action modal-close noHover">
+                    <i class="material-icons">highlight_off</i>
+                </a>
+            </div>
+        </div>
+        
+        <div class="row noMargen center">
+            <div class="noMargen col s12 m12 l12">
+                <h6 class="center" style="font-family:'robotoblack'; color:#831F82;font-size:30px; margin-bottom:30px;"><br>SELECCIONAR REPORTE</h6>
+            </div>
+        </div>
+        
+        <div class="row">
+            <form class="col s12"  method="post" name="formAddWork">
+                <div class="row"><h2></h2></div>
+
+                <div class="row">
+                     <div class="col s12 m4 l4">
+                        <input name="fecha" placeholder="FECHA DE INICIO" id="fecha" type="date" class="datepicker">
+                        <label id="lblFecha" class="labelValidacion">SELECCIONE LA SEMANA</label>
+                    </div>
+
+                    <div class="col s12 m4 l4">
+                        <select name="cargo" id="cargo">
+                            <option value="">SELECCIONE UN CARGO</option>
+                            <?PHP
+                                if(!($CGW)){
+                                } else {
+                                    foreach($CGW as $cargo){
+                                        echo '<option value="'.$cargo['Descripcion'].'">'.$cargo['Descripcion'].'</option>';
+                                     }
+                                 }
+                            ?>
+                        </select><label id="lblCargo" class="labelValidacion">SELECCIONE UN CARGO</label>
+                    </div>
+
+                    <div class="col s12 m4 l4">
+                        <select name="turno" id="turno">
+                            <option value="">SELECCIONE UN TURNO</option>
+                                <?PHP
+                                    if(!($TNW)){
+                                    } else {
+                                        foreach($TNW as $turno){
+                                            echo '<option value="'.$turno['Descripcion'].'">'.$turno['Descripcion'].'</option>';
+                                        }
+                                    }
+                                ?>
+                            </select><label id="lblTurno" class="labelValidacion">SELECCIONE UN TURNO</label>
+                    </div>
+                </div>
+                
+                <br><br>
+                <div class="row">                    
+                    <div class="center">
+			      	    <a class="Btnadd btn waves-effect waves-light" id="AddReporte" onclick="EnviarReporte()" style="background-color:#831F82;">FILTRAR
+                            <i class="material-icons right">send</i>
+                        </a>
+			        </div>
+                </div>
+            </form>
+        </div>
+    </div><!-- FIN DEL CONTENIDO DEL MODAL -->
+</div>
