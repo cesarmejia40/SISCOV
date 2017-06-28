@@ -1,27 +1,7 @@
-CREATE TABLE `rptsemana` (
-  `TB` varchar(150) DEFAULT NULL,
-  `LunR` int(11) DEFAULT NULL,
-  `LunP` int(11) DEFAULT NULL,
-  `MarR` int(11) DEFAULT NULL,
-  `MarP` int(11) DEFAULT NULL,
-  `MieR` int(11) DEFAULT NULL,
-  `MieP` int(11) DEFAULT NULL,
-  `JueR` int(11) DEFAULT NULL,
-  `JueP` int(11) DEFAULT NULL,
-  `VieR` int(11) DEFAULT NULL,
-  `VieP` int(11) DEFAULT NULL,
-  `SabR` int(11) DEFAULT NULL,
-  `SabP` int(11) DEFAULT NULL,
-  `PSAc` int(11) DEFAULT NULL,
-  `PSAn` int(11) DEFAULT NULL,
-  `PAM` int(11) DEFAULT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+Cambios de Procedure
 
 
-
-
-CREATE DEFINER=`root`@`localhost` PROCEDURE `pc_Puntos_Semana` (IN `c_FINI` DATE, IN `c_FFIN` DATE, IN `WCARGO` VARCHAR(150), IN `WHORARIO` VARCHAR(150))  BEGIN
-		DECLARE c_NombreC VARCHAR(150); 
+DECLARE c_NombreC VARCHAR(150); 
 	DECLARE c_Id, Id VARCHAR(10) DEFAULT "0"; 
 	DECLARE c_title, c_puntos, t_day, t_Total, t_count, errores INT DEFAULT 0;
 	DECLARE c_ttpsa FLOAT DEFAULT 0;
@@ -46,28 +26,32 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `pc_Puntos_Semana` (IN `c_FINI` DATE
 				IF errores = 1 THEN
 					LEAVE read_data;
 				END IF;
-
+				
 				IF CSQL = "(" THEN
-					SET CSQL = 	CONCAT(CSQL, "'", c_NombreC, "',", c_title, ",", c_puntos);
-
+					IF DAY(c_start) = DAY(c_FINI) THEN
+						SET CSQL = CONCAT(CSQL, "'", c_NombreC, "',", c_title, ",", c_puntos);
+					ELSE
+						SET CSQL = CONCAT(CSQL, "'", c_NombreC, "',0,0");
+					END IF;
+					
 					SET Id = c_Id;
 					SET t_day = DAY(c_start);
 					SET t_Total = c_ttpsa;
 				ELSE
 					IF Id <> c_Id THEN
-						IF t_count = 6 THEN
-							SET CSQL = CONCAT(CSQL, ",", t_Total, ",0,0),('", c_NombreC, "'");
-						ELSE
+						IF t_count != 6 THEN
 							simple_loop: LOOP
+								SET t_count = t_count+1;
+
 								SET CSQL = CONCAT(CSQL, ",0,0");
 								
 								IF t_count = 6 THEN
 									LEAVE simple_loop;
 								END IF;
-
-								SET t_count = t_count+1;
 							END LOOP simple_loop;
 						END IF;
+
+						SET CSQL = CONCAT(CSQL, ",", t_Total, ",0,0),('", c_NombreC, "'");
 
 						SET Id = c_Id;
 						SET t_day = DAY(c_start);
@@ -84,14 +68,7 @@ CREATE DEFINER=`root`@`localhost` PROCEDURE `pc_Puntos_Semana` (IN `c_FINI` DATE
 				SET t_day = t_day+1;
 				SET t_count = t_count+1;
 			END LOOP read_data;
-
-			SET @query = CONCAT("INSERT INTO rptsemana VALUES", CSQL, ",", c_ttpsa, ",0,0)");
-           
-			PREPARE IC FROM @query; 
-			EXECUTE IC;
-			DEALLOCATE PREPARE IC;
 		END IF;
 	CLOSE data_cursor;
-END$$
 
-DELIMITER ;
+Select CSQL;
