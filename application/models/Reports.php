@@ -43,6 +43,14 @@
             $FIni = date('Y-m-d', strtotime($FIni));
             $FFin = date('Y-m-d', strtotime($FFin));
 
-            $this->db->query("CALL pc_Puntos_Semana('$FIni','$FFin','$Cargo','$Horario')"); 
+         $query = $this->db->query("CALL pc_Puntos_Semana('$FIni','$FFin','$Cargo','$Horario')"); 
+            if($query)
+            {
+                echo "exito";
+            }
+            else{
+                echo "Error";
+            }
+
         }
     }

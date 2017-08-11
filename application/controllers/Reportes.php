@@ -29,5 +29,6 @@ class Reportes extends CI_Controller {
 
 	public function Guardar($Fecha,$Cargo,$Horario){
 		$this->Reports->Guardar($Fecha,$Cargo,$Horario);
+		//echo $Fecha,$Cargo,$Horario;
 	}
 }

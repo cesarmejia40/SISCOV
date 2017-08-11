@@ -87,6 +87,7 @@
             $data = array(
                 'IdTb' => $id,
                 'title' => $title,
+                'puntos' => $title,
                 'start' => $start,
                 'end'=> $start
             );

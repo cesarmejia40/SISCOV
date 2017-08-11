@@ -40,13 +40,13 @@
             </caption>
             <thead>
                 <tr class="tblcabecera">
-                    <th style="border-radius: 0px 0px 0px 20px;">Factor de <br>Evaluación</th>
-                    <th>resul<br>tado</th><th>puntos</th>
-                    <th>resul<br>tado</th><th>puntos</th>
-                    <th>resul<br>tado</th><th>puntos</th>
-                    <th>resul<br>tado</th><th>puntos</th>
-                    <th>resul<br>tado</th><th>puntos</th>
-                    <th>resul<br>tado</th><th>puntos</th>
+                    <th style="border-radius: 0px 0px 0px 20px;" width="98" class="left">Factor de <br>Evaluación</th>
+                    <th class="" width='113'>puntos  </th>
+                    <th width='124'>puntos</th>
+                    <th width='121'>puntos</th>
+                    <th width='120'>puntos</th>
+                    <th width='115'>puntos</th>
+                    <th width='113'>puntos</th>
                     <th>semana<br>actual</th>
                     <th>semana<br>pasada</th>
                     <th style="border-radius: 0px 0px 20px 0px;">acumulado <br>X mes</th>
@@ -57,14 +57,14 @@
                     if(!($RWS)){
                     } else {
                         foreach ($RWS as $key) {
-                            echo "<tr>                                    
-                                    <td class='bold'>".$key['TB']."</td>
-                                    <td>".$key['LunR']."</td><td>".$key['LunP']."</td>
-                                    <td>".$key['MarR']."</td><td>".$key['MarP']."</td>
-                                    <td>".$key['MieR']."</td><td>".$key['MieP']."</td>
-                                    <td>".$key['JueR']."</td><td>".$key['JueP']."</td>
-                                    <td>".$key['VieR']."</td><td>".$key['VieP']."</td>
-                                    <td>".$key['SabR']."</td><td>".$key['SabP']."</td>
+                            echo "<tr class=''>                                    
+                                    <td class='bold' width='98'>".$key['TB']."</td>
+                                    <td width='60'>".$key['LunR']."</td>
+                                    <td>".$key['MarR']."</td>
+                                    <td>".$key['MieR']."</td>
+                                    <td>".$key['JueR']."</td>
+                                    <td>".$key['VieR']."</td>
+                                    <td>".$key['SabR']."</td>
                                     <td>".$key['PSAc']."</td>
                                     <td>".$key['PSAn']."</td>
                                     <td>".$key['PAM']."</td>
